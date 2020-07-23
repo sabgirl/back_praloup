@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const cors = require('cors')
+const bodyparser = require('body-parser')
 const connection = require('./conf');
 const port = 4000;
 
@@ -7,6 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
+app.use(cors())
 
 app.post('/members', (req, res) => {
     const formData = req.body;
